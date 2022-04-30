@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: github-webhooks-exporter
+  namespace: monitoring
+  labels:
+    app: github-webhooks-exporter
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: github-webhooks-exporter
+      labels:
+        app: github-webhooks-exporter
+    spec:
+      containers:
+        - name: github-webhooks-exporter
+          image: quay.io/cbrgm/github-webhooks-exporter:latest
+          imagePullPolicy: Always
+          ports:
+            - name: external
+              containerPort: 9212
+            - name: internal
+              containerPort: 9213
+          args:
+            - --http.webhook-addr=0.0.0.0:9212
+            - --http.exporter-addr=0.0.0.0:9213
+            - --http.path=/metrics
+            - --log.level=info
+            - --github.wehook-secret=<insert_me>
+          resources:
+            limits:
+              cpu: 250m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 256Mi
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: github-webhooks-exporter
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: github-webhooks-exporter
+  namespace: monitoring
+  annotations:
+    prometheus.io/scrape: 'true'
+    prometheus.io/port: '9213'
+spec:
+  selector:
+    app: github-webhooks-exporter
+  type: ClusterIP
+  ports:
+    - port: 9213
+      targetPort: 9213
