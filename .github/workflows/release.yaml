@@ -26,9 +26,9 @@ jobs:
         run: make release
       - name: Package
         run: |
-          rsync ./bin/github-webhooks-exporter_darwin_amd64 README.md LICENSE github-webhooks-exporter_darwin_amd64 && tar czvf github-webhooks-exporter_darwin_amd64.tar.gz exporter_darwin_amd64
-          rsync ./bin/github-webhooks-exporter_amd64 README.md LICENSE github-webhooks-exporter_linux_amd64 && tar czvf github-webhooks-exporter_linux_amd64.tar.gz exporter_linux_amd64
-          rsync ./bin/github-webhooks-exporter_amd64 README.md LICENSE github-webhooks-exporter_windows_amd64 && tar czvf github-webhooks-exporter_windows_amd64.tar.gz exporter_windows_amd64
+          rsync ./bin/github-webhooks-exporter_darwin_amd64 README.md LICENSE github-webhooks-exporter_darwin_amd64 && tar czvf github-webhooks-exporter_darwin_amd64.tar.gz github-webhooks-exporter_darwin_amd64
+          rsync ./bin/github-webhooks-exporter_amd64 README.md LICENSE github-webhooks-exporter_linux_amd64 && tar czvf github-webhooks-exporter_linux_amd64.tar.gz github-webhooks-exporter_linux_amd64
+          rsync ./bin/github-webhooks-exporter_amd64 README.md LICENSE github-webhooks-exporter_windows_amd64 && tar czvf github-webhooks-exporter_windows_amd64.tar.gz github-webhooks-exporter_windows_amd64
       - name: Release
         uses: softprops/action-gh-release@8a65c813553f4d05769635eb1b70180d25b9b61b
         if: startsWith(github.ref, 'refs/tags/')
