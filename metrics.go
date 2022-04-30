@@ -185,8 +185,6 @@ func metricsHandler(r *prometheus.Registry) func(w http.ResponseWriter, r *http.
 		if err != nil {
 			return http.StatusInternalServerError, err
 		}
-
-		githubEventsCounter.WithLabelValues("200").Inc()
 		return http.StatusOK, nil
 	}
 }

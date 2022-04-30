@@ -51,3 +51,9 @@ release:
 .PHONY: container
 container:
 	podman build -t $(IMAGE):$(shell git describe --tags --abbrev=0) .
+	podman build -t $(IMAGE):latest .
+
+.PHONY: container-push
+container-push: container
+	podman push $(IMAGE):$(shell git describe --tags --abbrev=0)
+    podman push $(IMAGE):latest

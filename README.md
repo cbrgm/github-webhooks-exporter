@@ -41,6 +41,15 @@ Flags:
 | http_request_duration_seconds  | histogram |               | HTTP Duration in seconds.
 | http_requests_total  | counter   | Code  Status  | HTTP Duration in seconds.
 
+Example:
+```
+# HELP github_webhook_events_total The total number of webhook events received by type.
+# TYPE github_webhook_events_total counter
+github_webhook_events_total{action="completed",event="check_suite"} 1
+github_webhook_events_total{action="queued",event="workflow_job"} 1
+github_webhook_events_total{action="requested",event="workflow_run"} 1
+```
+
 ## Development
 
 ```bash

@@ -76,7 +76,7 @@ func main() {
 		r.Use(HTTPMetrics(registry))
 
 		// routes
-		r.Handle("/hook", HandleFunc(metricsHandler(registry))).Methods("GET")
+		r.Handle("/hook", HandleFunc(metricsHandler(registry))).Methods("POST")
 
 		s := http.Server{
 			Addr:    config.WebWebhookAddr,
