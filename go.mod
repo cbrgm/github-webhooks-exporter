@@ -6,9 +6,10 @@ require (
 	github.com/alecthomas/kong v0.5.0
 	github.com/cbrgm/githubevents v1.1.1
 	github.com/go-kit/kit v0.12.0
+	github.com/google/go-github/v43 v43.0.0
 	github.com/gorilla/mux v1.8.0
 	github.com/oklog/run v1.1.0
-	github.com/prometheus/client_golang v1.12.1
+	github.com/prometheus/client_golang v1.12.2
 )
 
 require (
@@ -17,7 +18,6 @@ require (
 	github.com/go-kit/log v0.2.0 // indirect
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/google/go-github/v43 v43.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
