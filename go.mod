@@ -3,7 +3,7 @@ module github.com/cbrgm/github-webhook-exporter
 go 1.18
 
 require (
-	github.com/alecthomas/kong v0.5.0
+	github.com/alecthomas/kong v0.6.1
 	github.com/cbrgm/githubevents v1.2.0
 	github.com/go-kit/kit v0.12.0
 	github.com/google/go-github/v43 v43.0.0
@@ -21,7 +21,6 @@ require (
 	github.com/google/go-github/v45 v45.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
-	github.com/pkg/errors v0.9.1 // indirect
 	github.com/prometheus/client_model v0.2.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
 	github.com/prometheus/procfs v0.7.3 // indirect
